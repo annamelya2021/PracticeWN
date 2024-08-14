@@ -4,7 +4,11 @@
 // import "./topics/06-function-destructuring"
 // import { ModuleNode } from "vite";
 // import "./topics/07-import-export"
-import "./topics/08-clases"
+// import "./topics/08-clases"
+// import "./topics/09-generics"
+// import "./topics/10-decoradores"
+import "./topics/11-optional-chaining"
+
 
 interface SuperHero{
 name:string;
