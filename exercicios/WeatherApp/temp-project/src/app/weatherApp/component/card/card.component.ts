@@ -5,7 +5,6 @@ import { subscribeOn } from 'rxjs';
 @Component({
   selector: 'card-weather',
   templateUrl: './card.component.html',
-  styleUrl: './card.component.css'
 })
 export class WeatherComponent implements OnInit {
   MyWeather:any;
