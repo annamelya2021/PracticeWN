@@ -1,7 +1,12 @@
-<div class="mycontainer">
+<search-weather (citySearch)="onCitySearch($event)"></search-weather>
+
+
+<div  *ngIf="MyWeather" class="container  text-center">
+<div class="row justify-content-center">
   <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
 
-    <h2 class="card-header text-center">City:Bilbao</h2>
+    <h2 class="card-header text-center">City:{{MyWeather.name}}
+    </h2>
     <p>
       <img  src="{{iconUrl}}" alt="">
     </p>
@@ -12,5 +17,5 @@
       <p class="card-text">Presure:{{humidity}}</p>
       <p class="card-text">Humidity:{{pressure}}</p>
   </div>
-
+</div>
 </div>
