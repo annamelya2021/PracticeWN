@@ -8,7 +8,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class SearchComponent {
   cityName: string = '';
 
-  @Output()citySearch = new EventEmitter<string>();
+  @Output()
+  citySearch = new EventEmitter<string>();
 
     onSearch(){
     if(this.cityName){

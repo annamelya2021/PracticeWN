@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Card } from './weatherApp/interfaces/card';
 
 @Injectable({
   providedIn: 'root'
@@ -14,4 +16,10 @@ export class WeatherService {
   getWeather(city:string){
     return this.http.get(`${this.apiUrl}?q=${city}&appid=${this.apiKey}&units=imperial`)
   }
+
+/*   getWeather(city:string):Observable<Card[]>{
+    return this.http.get<Card[]>(`${this.apiUrl}?q=${city}&appid=${this.apiKey}&units=imperial`)
+  } */
+
+
 }
