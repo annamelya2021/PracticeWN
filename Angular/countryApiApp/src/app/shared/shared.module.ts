@@ -1,24 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomePageComponent } from './pages/homePage/homePage.component';
-import { AboutPageComponent } from './pages/aboutPage/aboutPage.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
-import { ContactComponent } from './pages/contact/contact.component';
-import { SearchBoxComponent } from '../countries/components/searchBox/searchBox.component';
-import { CountryTableComponent } from '../countries/components/countryTable/countryTable.component';
 
+
+
+import { AboutPageComponent } from './pages/aboutPage/aboutPage.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { CountryTableComponent } from '../countries/components/countryTable/countryTable.component';
+import { HomePageComponent } from './pages/homePage/homePage.component';
+import { LoadingSpinerComponent } from './components/loadingSpiner/loadingSpiner.component';
+import { SearchBoxComponent } from '../countries/components/searchBox/searchBox.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 
 @NgModule({
   declarations: [
     AboutPageComponent,
-    HomePageComponent,
     ContactComponent,
-    SidebarComponent,
+    CountryTableComponent,
+    HomePageComponent,
     SearchBoxComponent,
-    CountryTableComponent
+    SidebarComponent,
+    LoadingSpinerComponent,
 
   ],
   imports: [
@@ -27,11 +31,12 @@ import { CountryTableComponent } from '../countries/components/countryTable/coun
   ],
   exports: [
     AboutPageComponent,
-    HomePageComponent,
-    SidebarComponent,
     ContactComponent,
+    CountryTableComponent,
+    HomePageComponent,
+    LoadingSpinerComponent,
     SearchBoxComponent,
-    CountryTableComponent
+    SidebarComponent,
   ]
 })
 export class SharedModule { }
