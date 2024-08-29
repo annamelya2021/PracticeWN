@@ -59,14 +59,32 @@ private loadFromLocalStorage(){
 
     }
 
-    searchCountry(term: string): Observable<Country[]>{
-      const url = `${this.apiUrl}/name/${term}`
-     return this.http.get<Country[]>(url)
-     .pipe(
-      tap(countries => this.cacheStore.byCountries = { term,  countries
-      }),
-      tap(()=> this.saveToLocalStorage())
-     )
+    // searchCountry(term: string): Observable<Country[]>{
+    //   const url = `${this.apiUrl}/name/${term}`
+    //  return this.http.get<Country[]>(url)
+    //  .pipe(
+    //   tap(countries => this.cacheStore.byCountries = { term,  countries
+    //   }),
+    //   tap(()=> this.saveToLocalStorage())
+    //  )
+    // }
+
+    getAllCountries(): Observable<Country[]> {
+      const url = `${this.apiUrl}/all`;
+      return this.http.get<Country[]>(url)
+        .pipe(
+          catchError(error => of([]))
+        );
+    }
+
+
+    searchCountry(term: string): Observable<Country[]> {
+      const url = `${this.apiUrl}/name/${term}`;
+      return this.getcountriesRequest(url)
+        .pipe(
+          tap(countries => this.cacheStore.byCountries = { term, countries }),
+          tap(() => this.saveToLocalStorage())
+        );
     }
 
 

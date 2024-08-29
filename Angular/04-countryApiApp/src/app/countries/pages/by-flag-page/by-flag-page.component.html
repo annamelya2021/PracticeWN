@@ -1,1 +1,28 @@
-<p>by-flag-page works!</p>,
+<h2>Paises y Banderas</h2>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <shared-search-box
+      [initialValue]="initialValue"
+      (onDebounce)="searchByFlag($event)"
+      placeholder="Buscar bandera por el pais">
+    </shared-search-box>
+  </div>
+</div>
+<hr>
+<shared-loading-spiner *ngIf="isLoading"></shared-loading-spiner>
+<div class="row">
+  <div class="col">
+    <div class="row">
+      <div *ngFor="let country of filteredCountries" class="col-12 col-md-4 mb-3">
+        <div class="card">
+          <img [src]="country.flags.svg" class="card-img-top img-flag" [alt]="country.name.common">
+          <div class="card-body">
+            <h5 class="card-title">{{ country.name.common }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
