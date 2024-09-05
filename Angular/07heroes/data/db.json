@@ -8,22 +8,6 @@
   ],
   "heroes": [
     {
-      "id": "dc-batman",
-      "superhero": "Batman",
-      "publisher": "DC Comics",
-      "alter_ego": "Bruce Wayne",
-      "first_appearance": "Detective Comics #27",
-      "characters": "Bruce Wayne"
-    },
-    {
-      "id": "dc-superman",
-      "superhero": "Superman",
-      "publisher": "DC Comics",
-      "alter_ego": "Kal-El",
-      "first_appearance": "Action Comics #1",
-      "characters": "Kal-El"
-    },
-    {
       "id": "dc-flash",
       "superhero": "Flash",
       "publisher": "DC Comics",
@@ -166,6 +150,15 @@
       "alter_ego": "Norrin Radd",
       "first_appearance": "The Fantastic Four #48",
       "characters": "Norrin Radd"
+    },
+    {
+      "id": "Yvh3w48",
+      "superhero": "cc",
+      "publisher": "DC Comics",
+      "alter_ego": "cc",
+      "first_appearance": "cc",
+      "characters": "cc",
+      "alt_img": "https://truth.bahamut.com.tw/s01/201102/63deb4f2a4aa4787df9c2066138212cc.JPG"
     }
   ]
 }
