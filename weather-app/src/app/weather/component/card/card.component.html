@@ -22,4 +22,6 @@
   </div>
 </div>
 
-<app-weather-chart></app-weather-chart>
+<h2> {{ MyWeather?.name }}</h2>
+<app-weather-chart  [city]="MyWeather?.name">
+</app-weather-chart>

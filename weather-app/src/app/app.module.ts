@@ -15,8 +15,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BaseChartDirective } from 'ng2-charts';
-import { WeatherChartComponent } from './weather/component//weather-chart/weather-chart.component';
-import { NgChartsModule } from 'ng2-charts';
+import { WeatherChartComponent } from './weather/component/weather-chart/weather-chart.component';
+
+
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { NgChartsModule } from 'ng2-charts';
     MatButtonModule,
     MatSnackBarModule,
     BaseChartDirective,
-    NgChartsModule
+
   ]
     ,
   providers: [],
