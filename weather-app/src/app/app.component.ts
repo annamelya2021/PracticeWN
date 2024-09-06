@@ -7,7 +7,7 @@ import { ThemeService } from './weather/services/theme.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'weather-app';
+  title = 'My Weather App';
 
 
   constructor(private themeService: ThemeService) {}

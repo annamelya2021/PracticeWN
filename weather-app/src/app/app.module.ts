@@ -14,13 +14,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { BaseChartDirective } from 'ng2-charts';
+import { WeatherChartComponent } from './weather/component//weather-chart/weather-chart.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    WeatherComponent
+    WeatherComponent,
+    WeatherChartComponent
   ],
   imports: [
     BrowserModule,
@@ -31,9 +34,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatSnackBarModule
-
-  ],
+    MatSnackBarModule,
+    BaseChartDirective,
+    NgChartsModule
+  ]
+    ,
   providers: [],
   bootstrap: [AppComponent],
 })
