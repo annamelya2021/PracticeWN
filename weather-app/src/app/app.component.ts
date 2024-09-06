@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemeService } from './weather/services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'weather-app';
 
-  city: string = '';  // Змінна для збереження міста
 
-  // Метод для обробки події пошуку міста
-  onCitySearch(city: string) {
-    this.city = city;
+  constructor(private themeService: ThemeService) {}
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
   }
 
+  isDarkTheme(): boolean {
+    return this.themeService.isDarkTheme();
+  }
 }

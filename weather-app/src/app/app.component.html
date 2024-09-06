@@ -1,3 +1,14 @@
-<div class="container mt-4 col-md-2">  My Weather App</div>
+
+<!-- <mat-toolbar color="azure">
+  <div class="container mt-4 col-md-2">  My Weather App</div>
+</mat-toolbar> -->
+
+<mat-toolbar color="primary">
+  <span>{{ title }}</span>
+  <span class="spacer"></span>
+  <button mat-button (click)="toggleTheme()">
+    {{ isDarkTheme() ? 'Light Theme' : 'Dark Theme' }}
+  </button>
+</mat-toolbar>
 
 <card-weather></card-weather>

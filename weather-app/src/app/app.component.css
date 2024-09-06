@@ -1,0 +1,19 @@
+mat-toolbar { background-color:  #494ead; }
+div{ color: #ebe7f9; }
+
+
+
+.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-theme .mat-card {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-theme .mat-toolbar {
+  background-color: #333333;
+  color: #ffffff;
+}
