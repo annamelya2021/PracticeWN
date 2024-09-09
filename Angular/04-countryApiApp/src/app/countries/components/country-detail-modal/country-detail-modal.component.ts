@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Country } from '../../interfaces/country.interface';
 
 
@@ -10,8 +10,9 @@ import { Country } from '../../interfaces/country.interface';
 export class CountryDetailModalComponent {
   @Input() country!: Country;
   @Input() showModal: boolean = false;
+  @Output() close = new EventEmitter<void>();
 
   closeModal() {
-    this.showModal = false;
+    this.close.emit();
   }
 }

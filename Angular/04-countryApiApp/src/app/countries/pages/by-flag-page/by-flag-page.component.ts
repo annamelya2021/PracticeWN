@@ -9,9 +9,10 @@ import { CountriesService } from '../../services/countries.service';
     .img-flag {
       width: 100%;
       height: 200px;
-      object-fit: cover; 
+      object-fit: cover;
       object-position: center;
-    }`]
+    }
+  `]
 })
 export class ByFlagPageComponent implements OnInit {
   public countries: Country[] = [];
@@ -45,5 +46,10 @@ export class ByFlagPageComponent implements OnInit {
   openCountryDetails(country: Country) {
     this.selectedCountry = country;
     this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+    this.selectedCountry = null;
   }
 }
