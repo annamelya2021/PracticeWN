@@ -16,7 +16,7 @@
   <div class="col">
     <div class="row">
       <div *ngFor="let country of filteredCountries" class="col-12 col-md-4 mb-3">
-        <div class="card">
+        <div class="card" (click)="openCountryDetails(country)">
           <img [src]="country.flags.svg" class="card-img-top img-flag" [alt]="country.name.common">
           <div class="card-body">
             <h5 class="card-title">{{ country.name.common }}</h5>
@@ -26,3 +26,8 @@
     </div>
   </div>
 </div>
+
+<app-country-detail-modal 
+  [country]="selectedCountry!"
+  [showModal]="showModal">
+</app-country-detail-modal>

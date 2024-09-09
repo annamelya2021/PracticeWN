@@ -18,6 +18,8 @@ export class ByFlagPageComponent implements OnInit {
   public filteredCountries: Country[] = [];
   public isLoading: boolean = false;
   public initialValue: string = '';
+  public selectedCountry: Country | null = null;
+  public showModal: boolean = false;
 
   constructor(private countriesService: CountriesService) { }
 
@@ -38,5 +40,10 @@ export class ByFlagPageComponent implements OnInit {
         country.name.common.toLowerCase().includes(term.toLowerCase())
       );
     }
+  }
+
+  openCountryDetails(country: Country) {
+    this.selectedCountry = country;
+    this.showModal = true;
   }
 }

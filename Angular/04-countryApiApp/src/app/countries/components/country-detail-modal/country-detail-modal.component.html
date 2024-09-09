@@ -1,0 +1,12 @@
+<div class="modal-backdrop" *ngIf="showModal" (click)="closeModal()"></div>
+<div class="modal" *ngIf="showModal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>{{ country.name.common }}</h2>
+    <p><strong>Capital:</strong> {{ country.capital[0] }}</p>
+    <p><strong>Población:</strong> {{ country.population }}</p>
+    <p><strong>Moneda:</strong> {{ country.currencies | json }}</p>
+    <p><strong>Idioma(s):</strong> {{ country.languages | json }}</p>
+  </div>
+</div>
+

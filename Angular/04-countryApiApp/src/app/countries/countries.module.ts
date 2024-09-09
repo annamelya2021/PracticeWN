@@ -7,6 +7,7 @@ import { CountryPageComponent } from './pages/country-page/country-page.componen
 import { CountriesRoutingModule } from './countries-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ByFlagPageComponent } from './pages/by-flag-page/by-flag-page.component';
+import { CountryDetailModalComponent } from './components/country-detail-modal/country-detail-modal.component';
 
 
 
@@ -17,6 +18,7 @@ import { ByFlagPageComponent } from './pages/by-flag-page/by-flag-page.component
     ByRegionPageComponent,
     CountryPageComponent,
     ByFlagPageComponent,
+    CountryDetailModalComponent
 
   ],
   imports: [
