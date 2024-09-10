@@ -2,9 +2,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, tap, map, Observable,of} from 'rxjs';
-import { Country } from '../interfaces/country.interface';
-import { CacheStore } from '../interfaces/cahe-store.interface';
-import { Region } from '../interfaces/region.type';
+import { CacheStore } from '../countries/interfaces/cahe-store.interface';
+import { Country } from '../countries/interfaces/country.interface';
+import { Region } from '../countries/interfaces/region.type';
+
 
 @Injectable({providedIn: 'root'})
 export class CountriesService {

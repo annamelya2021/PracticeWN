@@ -5,6 +5,7 @@ import { ByCountryPageComponent } from './pages/by-country-page/by-country-page.
 import { ByRegionPageComponent } from './pages/by-region-page/by-region-page.component';
 import { CountryPageComponent } from './pages/country-page/country-page.component';
 import { ByFlagPageComponent } from './pages/by-flag-page/by-flag-page.component';
+import {  PopulationPageComponent  } from './pages/population-page/population.component';
 
 
 const routes:Routes= [
@@ -27,6 +28,10 @@ const routes:Routes= [
 {
   path: 'by/:id',
   component: CountryPageComponent,
+},
+{
+  path: 'population',
+  component:  PopulationPageComponent  ,
 },
 {
   path: '**' ,
