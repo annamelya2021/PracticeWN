@@ -1,7 +1,13 @@
 <p>population works!</p>
-<div class="" *ngFor="let data of populationData">
-<h3>{{data.region}}</h3>
-<p>Year:{{data.year}}</p>
-<p>population:{{data.population}}</p>
+<shared-search-box
+  [placeholder]="'Search population by name...'"
+  (onValue)="handleSearch($event)"
+  (onDebounce)="handleDebounce($event)">
+</shared-search-box>
 
+<div class="" *ngFor="let data of filteredData">
+
+  <h3>{{data.region}}</h3>
+  <p>Year: {{data.year}}</p>
+  <p>Population: {{data.population}}</p>
 </div>

@@ -1,5 +1,10 @@
 export interface PopulationData {
-  ID_RESIDENCIA_N1: string;
-  SPERSONAS: number;
+  region: string;
+  year: number;
+  population: number;
+}
 
+export interface ApiPopulationResponse {
+  Nombre: string;
+  Data: { Anyo: number; Valor: number }[];
 }
