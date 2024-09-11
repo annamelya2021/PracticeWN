@@ -22,7 +22,7 @@ export class PopulationPageComponent implements OnInit {
     this.populationService.getPopulationData().subscribe((data: ApiPopulationResponse[]) => {
       this.populationData = data.map((region: ApiPopulationResponse) => ({
         region: region.Nombre,
-        year: 2021,
+        year: 2022,
         population: region.Data.find(d => d.Anyo === 2021)?.Valor || 0
       })).filter(item => item.population > 3000);
 
