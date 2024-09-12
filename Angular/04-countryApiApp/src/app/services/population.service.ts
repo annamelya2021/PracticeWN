@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ApiPopulationResponse, PopulationData } from '../countries/interfaces/population.interface';
+import { ApiPopulationResponse } from '../countries/interfaces/population.interface';
 
 
 

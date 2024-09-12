@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PopulationService } from './../../../services/population.service';
+import { PopulationService } from '../../../services/population.service';
 import { PopulationData, ApiPopulationResponse } from '../../interfaces/population.interface';
 
 @Component({
@@ -11,11 +11,14 @@ export class PopulationPageComponent implements OnInit {
   populationData: PopulationData[] = [];
   filteredData: PopulationData[] = [];
   searchTerm: string = '';
+  public isLoading: boolean = false;
 
   constructor(private populationService: PopulationService) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.loadPopulationData();
+    this.isLoading = false;
   }
 
   loadPopulationData(): void {

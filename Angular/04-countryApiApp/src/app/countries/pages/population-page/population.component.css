@@ -20,6 +20,7 @@ mat-card-title {
 }
 
 mat-card-subtitle {
+  margin-left: 15px;
   font-size: 1em;
   color: gray;
 }
@@ -27,4 +28,14 @@ mat-card-subtitle {
 mat-card-content {
   font-size: 1em;
   color: #333;
+
 }
+.mat-icon {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.mat-card-subtitle {
+  text-align: center;
+}
+
