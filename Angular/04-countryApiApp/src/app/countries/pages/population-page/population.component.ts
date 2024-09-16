@@ -18,7 +18,7 @@ export class PopulationPageComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this.loadPopulationData();
-    this.isLoading = false;
+    //this.isLoading = false;
   }
 
   loadPopulationData(): void {
@@ -28,6 +28,7 @@ export class PopulationPageComponent implements OnInit {
         year: 2022,
         population: region.Data.find(d => d.Anyo === 2021)?.Valor || 0
       })).filter(item => item.population > 3000);
+      this.isLoading=false
 
       this.filteredData = this.populationData.filter(item =>
         item.region.toLowerCase().includes('total municipios')
