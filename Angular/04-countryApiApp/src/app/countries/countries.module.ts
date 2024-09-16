@@ -40,7 +40,7 @@ import { PopulationPageCopyComponent } from './pages/population-page copy/popula
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
   ]
 })
 export class CountriesModule { }

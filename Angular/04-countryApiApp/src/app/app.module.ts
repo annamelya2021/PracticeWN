@@ -28,7 +28,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+
   ],
   providers: [
     provideAnimationsAsync()

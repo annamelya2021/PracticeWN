@@ -1,8 +1,18 @@
-<div *ngFor="let community of communities; let i = index">
-  <h2 (click)="toggleProvinces(community)">
-    {{ i + 1 }}. {{ community.name }} ({{ community.provinces.length }} provinces)
-  </h2>
-  <ul *ngIf="community.showProvinces">
-    <li *ngFor="let province of community.provinces">{{ province.name }} </li>
-  </ul>
-</div>
+<mat-card *ngFor="let community of combinedData">
+  <mat-card-header>
+    <mat-card-title>{{ community.name }}</mat-card-title>
+    <mat-card-subtitle>Population: {{ community.population }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- Відображення кількості провінцій -->
+    <p>Number of Provinces: {{ community.provinces.length }}</p>
+    <!-- Якщо потрібно відображати список провінцій, додайте це: -->
+    <!--
+    <ul>
+      <li *ngFor="let province of community.provinces">
+        {{ province.name }} - Population: {{ province.population }}
+      </li>
+    </ul>
+    -->
+  </mat-card-content>
+</mat-card>
