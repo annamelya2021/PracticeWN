@@ -6,6 +6,7 @@ import { ByRegionPageComponent } from './pages/by-region-page/by-region-page.com
 import { CountryPageComponent } from './pages/country-page/country-page.component';
 import { ByFlagPageComponent } from './pages/by-flag-page/by-flag-page.component';
 import { PopulationPageComponent } from './pages/population-page/population.component';
+import { PopulationPageCopyComponent } from './pages/population-page copy/population.component';
 
 
 
@@ -33,6 +34,10 @@ const routes:Routes= [
 {
   path: 'population',
   component:  PopulationPageComponent  ,
+},
+{
+  path: 'populationcopy',
+  component:  PopulationPageCopyComponent  ,
 },
 {
   path: '**' ,

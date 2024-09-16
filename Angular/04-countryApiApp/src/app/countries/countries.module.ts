@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { PopulationPageComponent } from './pages/population-page/population.component';
+import { PopulationPageCopyComponent } from './pages/population-page copy/population.component';
 
 
 
@@ -28,7 +29,7 @@ import { PopulationPageComponent } from './pages/population-page/population.comp
     ByFlagPageComponent,
     CountryDetailModalComponent,
     PopulationPageComponent,
-
+    PopulationPageCopyComponent,
 
   ],
   imports: [

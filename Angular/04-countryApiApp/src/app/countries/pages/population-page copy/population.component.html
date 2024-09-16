@@ -1,0 +1,8 @@
+<div *ngFor="let community of communities; let i = index">
+  <h2 (click)="toggleProvinces(community)">
+    {{ i + 1 }}. {{ community.name }} ({{ community.provinces.length }} provinces)
+  </h2>
+  <ul *ngIf="community.showProvinces">
+    <li *ngFor="let province of community.provinces">{{ province.name }} </li>
+  </ul>
+</div>
