@@ -3,15 +3,23 @@ import { HttpClient } from '@angular/common/http';
 import { Community, PopulationData } from '../../interfaces/population.interface';
 import { PopulationService } from '../../../services/population.service';
 import { ProvincesService } from '../../../services/provincias.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-provinces',
   templateUrl: './population.component.html',
+  styleUrls: ['./population.component.css'],
 })
 export class PopulationPageCopyComponent implements OnInit {
   populationData: PopulationData[] = [];
   communities: Community[] = [];
   combinedData: any[] = [];
+  filteredData: any[] = []; // Масив для збереження відфільтрованих даних
+  public isLoading: boolean = false;
+  searchTerm: string = ''; // Строка для пошукового запиту
+
+  // Створюємо масив, який відслідковує стан відображення списку провінцій
+  toggledCommunities: { [key: string]: boolean } = {};
 
   constructor(
     private populationService: PopulationService,
@@ -19,113 +27,138 @@ export class PopulationPageCopyComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadPopulationData();
-    this.loadCommunitiesAndProvinces();
+    this.isLoading = true;
+    this.loadData();
   }
 
-  // Функція для нормалізації назв громад та провінцій
-normalizeRegionName(region: string): string {
-  return region
-    .toLowerCase()
-    .replace(/rioja, la/g, 'la rioja')
-    .replace(/balears, illes/g, 'illes balears')
-    .replace(/castilla - la mancha/g, 'castilla-la mancha')
-    .replace(/madrid, comunidad de/g, 'comunidad de madrid')
-    .replace(/navarra, comunidad foral de/g, 'comunidad foral de navarra')
-    .replace(/murcia, región de/g, 'región de murcia')
-    .replace(/principado de asturias/g, 'principado de asturias')
-    .replace(/canarias/g, 'canarias')
-    .replace(/castilla y león/g, 'castilla y león')
-    .replace(/valencia/g, 'comunitat valenciana')
-    .replace(/comunitat valenciana/g, 'comunitat valenciana')
-    .replace(/país vasco/g, 'país vasco')
-    .replace(/,/g, '')
-    .trim();
-}
+  // Метод для завантаження даних із обох сервісів одночасно
+  loadData(): void {
+    forkJoin({
+      populationData: this.populationService.getPopulationData(),
+      communities: this.provincesService.getCommunitiesAndProvinces(),
+    }).subscribe(({ populationData, communities }) => {
+          console.log('Population Data:', populationData); // Лог отриманих даних населення
+    console.log('Communities Data:', communities); // Лог отриманих громад
 
 
-  loadPopulationData(): void {
-    this.populationService.getPopulationData().subscribe(data => {
-      this.populationData = data.map(region => ({
+      this.populationData = populationData.map(region => ({
         region: region.Nombre,
         year: 2022,
-        // Отримання населення за 2022 рік або 0, якщо дані відсутні
         population: region.Data.find(d => d.Anyo === 2021)?.Valor || 0
       }));
 
-      // Логування для перевірки даних
-      console.log('Population Data:', this.populationData);
+      this.communities = communities;
 
-      // Виклик функції для об'єднання даних
       this.combineData();
+
+      this.isLoading = false;
     });
   }
 
-  loadCommunitiesAndProvinces(): void {
-    this.provincesService.getCommunitiesAndProvinces().subscribe(data => {
-      this.communities = data;
-
-      // Логування для перевірки даних
-      console.log('Communities Data:', this.communities);
-
-      // Виклик функції для об'єднання даних
-      this.combineData();
-    });
+  normalizeRegionName(region: string): string {
+    return region
+      .toLowerCase()
+      .replace(/rioja, la/g, 'la rioja')
+      .replace(/balears, illes/g, 'illes balears')
+      .replace(/castilla - la mancha/g, 'castilla-la mancha')
+      .replace(/madrid, comunidad de/g, 'comunidad de madrid')
+      .replace(/navarra, comunidad foral de/g, 'comunidad foral de navarra')
+      .replace(/murcia, región de/g, 'región de murcia')
+      .replace(/principado de asturias/g, 'principado de asturias')
+      .replace(/canarias/g, 'canarias')
+      .replace(/castilla y león/g, 'castilla y león')
+      .replace(/valencia/g, 'comunitat valenciana')
+      .replace(/país vasco/g, 'país vasco')
+      .replace(/,/g, '')
+      .trim();
   }
 
-combineData(): void {
-  if (this.populationData.length && this.communities.length) {
-    this.combinedData = this.communities
-      .map(community => {
-        // Нормалізуємо назву громади для порівняння
-        const normalizedCommunityName = this.normalizeRegionName(community.name);
+  combineData(): void {
 
-        // Знаходимо дані населення для цієї громади
-        const filteredPopulation = this.populationData
-          .filter(p => this.normalizeRegionName(p.region).includes(normalizedCommunityName))
-          .map(p => p.population);
+     console.log('Combined Data:', this.combinedData); // Лог для перевірки всіх даних перед фільтруванням
+  console.log('Search Term in Filter:', this.searchTerm);
+    if (this.populationData.length && this.communities.length) {
+      this.combinedData = this.communities
+        .map(community => {
+          const normalizedCommunityName = this.normalizeRegionName(community.name);
 
-        // Знаходимо найбільше ненульове значення населення
-        const maxPopulation = filteredPopulation.length
-          ? Math.max(...filteredPopulation.filter(p => p > 0))
-          : 0;
+          const filteredPopulation = this.populationData
+            .filter(p => this.normalizeRegionName(p.region).includes(normalizedCommunityName))
+            .map(p => p.population);
 
-        // Перевірка на конкретні громади, які потрібно виключити
-        const isExcluded = [
-          'ciudad autónoma de ceuta',
-          'principado de asturias',
-          'ciudad autónoma de melilla'
-        ].includes(normalizedCommunityName);
+          const maxPopulation = filteredPopulation.length
+            ? Math.max(...filteredPopulation.filter(p => p > 0))
+            : 0;
 
-        // Повертаємо громаду лише якщо її населення більше 0 і вона не є виключеною
-        return !isExcluded && maxPopulation > 0
-          ? {
-              ...community,
-              population: maxPopulation,
-              provinces: community.provinces.map(province => {
-                const normalizedProvinceName = this.normalizeRegionName(province.name);
+          const isExcluded = [
+            'ciudad autónoma de ceuta',
+            'principado de asturias',
+            'ciudad autónoma de melilla'
+          ].includes(normalizedCommunityName);
 
-                const provincePopulation = this.populationData
-                  .filter(p => this.normalizeRegionName(p.region).includes(normalizedProvinceName))
-                  .map(p => p.population);
+          return !isExcluded && maxPopulation > 0
+            ? {
+                ...community,
+                population: maxPopulation,
+                provinces: community.provinces.map(province => {
+                  const normalizedProvinceName = this.normalizeRegionName(province.name);
 
-                const maxProvincePopulation = provincePopulation.length
-                  ? Math.max(...provincePopulation.filter(p => p > 0))
-                  : 0;
+                  const provincePopulation = this.populationData
+                    .filter(p => this.normalizeRegionName(p.region).includes(normalizedProvinceName))
+                    .map(p => p.population);
 
-                return {
-                  ...province,
-                  population: maxProvincePopulation
-                };
-              })
-            }
-          : null;
-      })
-      .filter(community => community !== null);
+                  const maxProvincePopulation = provincePopulation.length
+                    ? Math.max(...provincePopulation.filter(p => p > 0))
+                    : 0;
 
-    // Додаємо логування для перевірки об'єднаних даних
-    console.log('Combined Data:', this.combinedData);
+                  return {
+                    ...province,
+                    population: maxProvincePopulation
+                  };
+                })
+              }
+            : null;
+        })
+        .filter(community => community !== null);
+
+      // Встановлюємо відфільтровані дані при першому завантаженні
+      this.filteredData = this.combinedData;
+    }
   }
-}
 
+  // Метод для обробки введення в пошуковий рядок
+  handleSearch(term: string): void {
+    this.searchTerm = term;
+     console.log('Search Term:', this.searchTerm);
+    this.filterData();
+  }
+
+  // Метод для обробки дебаунсу
+  handleDebounce(term: string): void {
+    this.searchTerm = term;
+    this.filterData();
+  }
+
+  // Фільтрація даних за назвою регіону або провінції
+  filterData(): void {
+    if (!this.searchTerm.trim()) {
+      this.filteredData = [...this.combinedData]; // Повертаємо всі дані, якщо немає пошукового запиту
+    } else {
+      const lowerSearchTerm = this.searchTerm.toLowerCase();
+ console.log('Filtering with:', lowerSearchTerm);
+      // Фільтрація за назвою регіону та провінцій
+      this.filteredData = this.combinedData.filter(community =>
+        this.normalizeRegionName(community.name).includes(lowerSearchTerm) ||
+        community.provinces.some((province: { name: string; }) =>
+          this.normalizeRegionName(province.name).includes(lowerSearchTerm)
+        )
+      );
+      console.log('Filtered Data:', this.filteredData);
+    }
+  }
+
+  // Метод для тоглу
+  toggleProvinces(communityName: string): void {
+    this.toggledCommunities[communityName] = !this.toggledCommunities[communityName];
+  }
 }

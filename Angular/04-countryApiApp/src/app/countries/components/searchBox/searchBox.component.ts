@@ -45,9 +45,11 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
 
   emitValue(value:string):void{
     this.onValue.emit(value)
+     console.log('Emit Value:', value);
   }
   onKeyPress(searchTerm: string){
-  this.debouncer.next( searchTerm)
+    this.debouncer.next(searchTerm)
+    console.log('Key Pressed:', searchTerm);
   }
 
 }
