@@ -15,10 +15,15 @@ import { CountryPageComponent } from './pages/country-page/country-page.componen
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
+import {  MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import { AuthModule } from '../auth/auth.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -30,10 +35,13 @@ import { MatExpansionModule } from '@angular/material/expansion';
     CountryDetailModalComponent,
     PopulationPageComponent,
     PopulationPageCopyComponent,
+    LayoutPageComponent,
+
 
   ],
   imports: [
     CommonModule,
+    AuthModule,
     CountriesRoutingModule,
     SharedModule,
     MatCardModule,
@@ -42,6 +50,14 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatIconModule,
     MatButtonModule,
     MatExpansionModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatIconModule
   ]
 })
 export class CountriesModule { }

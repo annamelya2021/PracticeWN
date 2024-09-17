@@ -11,6 +11,7 @@ import { HomePageComponent } from './pages/homePage/homePage.component';
 import { LoadingSpinerComponent } from './components/loadingSpiner/loadingSpiner.component';
 import { SearchBoxComponent } from '../countries/components/searchBox/searchBox.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { Error404PageComponent } from './pages/error404-page/error404-page.component';
 
 
 
@@ -23,6 +24,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     SearchBoxComponent,
     SidebarComponent,
     LoadingSpinerComponent,
+    Error404PageComponent,
 
   ],
   imports: [
