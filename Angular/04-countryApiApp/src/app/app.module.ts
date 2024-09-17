@@ -16,6 +16,7 @@ import { AuthModule } from './auth/auth.module';
 // import { MatIconModule } from '@angular/material/icon';
 // import { MatInputModule } from '@angular/material/input';
 // import { MatCardModule } from '@angular/material/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -29,9 +30,10 @@ import { AuthModule } from './auth/auth.module';
     SharedModule,
     HttpClientModule,
     CountriesModule,
-    RouterModule.forRoot([]),
+    RouterModule,
     AuthModule,
 
+      BrowserAnimationsModule,
 
     //  MatCardModule,
     // MatInputModule,

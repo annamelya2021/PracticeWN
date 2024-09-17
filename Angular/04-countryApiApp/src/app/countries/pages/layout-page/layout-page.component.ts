@@ -13,9 +13,12 @@ import { User } from '../../../auth/interfaces/user.interface';
 export class LayoutPageComponent {
 
   public sidebarItems = [
-    { label: 'Listado', icon: 'label', url: './list' },
-    { label: 'Añadir', icon: 'add', url: './new-hero' },
-    { label: 'Buscar', icon: 'search', url: './search' },
+    { label: 'Search countries by capital', icon: 'search', url: './countries/by-capital' },
+    { label: 'Search countries by region', icon: 'search', url: './countries/by-region' },
+    { label: 'Search countries by name', icon: 'search', url: './countries/by-country' },
+    { label: 'Search countries by flag', icon: 'search', url: './countries/by-flag' },
+    { label: 'Population y regions of Spain', icon: 'search', url: './countries/populationcopy' }
+    ,
   ];
 
   constructor(
