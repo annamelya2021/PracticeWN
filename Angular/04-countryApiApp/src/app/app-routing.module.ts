@@ -6,7 +6,7 @@ import { ContactComponent } from './shared/pages/contact/contact.component';
 import { PublicGuard } from './auth/guards/public.guard';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { Error404PageComponent } from './shared/pages/error404-page/error404-page.component';
-import {AuthModule} from "./auth/auth.module";
+
 const routes: Routes = [
   {
     path: 'auth',
@@ -21,22 +21,24 @@ const routes: Routes = [
     canMatch: [ AuthGuard ]
   },
   {
-    path: 'about',
-    component: AboutPageComponent,
-  },
-  {
-    path: 'contact',
-    component: ContactComponent,
-  },
-  {
     path: 'countries',
     loadChildren: () => import('./countries/countries.module').then(m=> m.CountriesModule)
 
   },
   {
+    path: '404',
+    component: Error404PageComponent,
+  },
+  {
+    path: '',
+    redirectTo: 'countries',
+    pathMatch: 'full'
+  },
+  {
     path: '**',
-    redirectTo: 'countries/by-capital'
+    redirectTo: '404',
   }
+
 ];
 
 
