@@ -20,11 +20,11 @@ const routes: Routes = [
     canActivate: [ AuthGuard ],
     canMatch: [ AuthGuard ]
   },
-  {
+/*   {
     path: 'countries',
     loadChildren: () => import('./countries/countries.module').then(m=> m.CountriesModule)
 
-  },
+  }, */
   {
     path: '404',
     component: Error404PageComponent,

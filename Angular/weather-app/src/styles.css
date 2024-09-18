@@ -1,0 +1,12 @@
+
+
+
+body.dark-theme {
+  background-color: #121212;
+
+}
+
+body.dark-theme .mat-card {
+  background-color: #1e1e1e;
+
+}
