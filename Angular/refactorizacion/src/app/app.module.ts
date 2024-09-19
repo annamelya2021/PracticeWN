@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     BrowserModule,
-
+    BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
   RouterModule

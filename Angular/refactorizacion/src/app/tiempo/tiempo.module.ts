@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SearchComponent } from './component/search/search.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { BrowserModule } from '@angular/platform-browser';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     TiempoRoutingModule,
     MatToolbarModule,
     MatButtonModule,
@@ -39,7 +41,10 @@ import { BrowserModule } from '@angular/platform-browser';
     MatSnackBarModule,
     BaseChartDirective,
     FormsModule,
-    BrowserAnimationsModule,
-  ]
+    
+  ],
+  exports: [
+    WeatherPageComponent
+    ]
 })
 export class TiempoModule { }
