@@ -5,7 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Error404Component } from './pages/error404/error404.component';
-
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -15,6 +15,7 @@ import { Error404Component } from './pages/error404/error404.component';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule

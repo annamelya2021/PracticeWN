@@ -3,10 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { WeatherPageComponent } from './pages/weather-page/weather-page.component';
 
 const routes: Routes = [
-  {
-    /* path: "", */
-
-    path: "weather",
+   {
+    path: '',
     component: WeatherPageComponent
   }
 ];
