@@ -11,10 +11,12 @@ export class WeatherPageComponent {
   constructor(private themeService: ThemeService) {}
 
   toggleTheme() {
+    console.log('holatoggle2 :>> ');
     this.themeService.toggleTheme();
   }
 
   isDarkTheme(): boolean {
+    console.log('holatoggle dark:>> ');
     return this.themeService.isDarkTheme();
   }
 }

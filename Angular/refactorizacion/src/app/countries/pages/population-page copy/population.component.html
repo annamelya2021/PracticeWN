@@ -1,0 +1,35 @@
+<shared-search-box
+  [placeholder]="'Search population by name...'"
+  (onValue)="handleSearch($event)"
+  (onDebounce)="handleDebounce($event)"
+></shared-search-box>
+
+
+<shared-loading-spiner *ngIf="isLoading"></shared-loading-spiner>
+<mat-card class="population-card" *ngFor="let community of filteredData">
+  <mat-card-header>
+    <mat-card-title>{{ community.name }}</mat-card-title>
+
+    <mat-card-subtitle>
+      <mat-icon>group</mat-icon> Population: {{ community.population }}
+    </mat-card-subtitle>
+
+    <mat-card-subtitle>
+      <mat-icon>calendar_today</mat-icon> Year: 2022
+    </mat-card-subtitle>
+
+    <button mat-icon-button (click)="toggleProvinces(community.name)">
+      <mat-icon>{{ toggledCommunities[community.name] ? 'expand_less' : 'expand_more' }}</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Number of Provinces: {{ community.provinces.length }}</p>
+
+    <ul *ngIf="toggledCommunities[community.name]">
+      <li *ngFor="let province of community.provinces">
+        {{ province.name }}
+      </li>
+    </ul>
+  </mat-card-content>
+</mat-card>
+

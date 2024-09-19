@@ -8,6 +8,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CountriesModule } from './countries/countries.module';
+import { BanderasModule } from './banderas/banderas.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
-  RouterModule
+   /*  CountriesModule,/*  */
+    RouterModule,
+    BanderasModule
   ],
   providers: [
     provideAnimationsAsync()

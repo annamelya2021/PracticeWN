@@ -2,3 +2,17 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+
+
+body.dark-theme {
+  background-color: #121212;
+
+}
+
+body.dark-theme .mat-card {
+  background-color: #1e1e1e;
+
+}

@@ -7,6 +7,7 @@ export class ThemeService {
   private darkTheme = false;
 
   toggleTheme() {
+    console.log('holatoggle :>> ');
     this.darkTheme = !this.darkTheme;
     if (this.darkTheme) {
       document.body.classList.add('dark-theme');
