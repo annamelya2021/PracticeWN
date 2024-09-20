@@ -11,6 +11,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchBoxComponent } from './components/searchBox/searchBox.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { Error404Component } from './pages/error404/error404.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -28,6 +35,20 @@ import { Error404Component } from './pages/error404/error404.component';
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule,
+    MatExpansionModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatIconModule,
   ],
   exports: [
     RouterModule,
@@ -37,6 +58,24 @@ import { Error404Component } from './pages/error404/error404.component';
     SidebarComponent,
     SearchBoxComponent,
     CountryDetailModalComponent,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    HttpClientModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule,
+    MatExpansionModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatIconModule,
   ],
 })
 export class SharedModule {}

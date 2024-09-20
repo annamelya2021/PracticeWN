@@ -32,4 +32,6 @@ export class LayoutPageComponent {
     this.router.navigate(['/auth/login'])
   }
 
+
+  
 }

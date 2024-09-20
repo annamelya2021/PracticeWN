@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Community, PopulationData } from '../../countryApp/interfaces/population.interface';
-
 import { forkJoin } from 'rxjs';
 import { PopulationService } from '../../countryApp/services/population.service';
 import { ProvincesService } from '../../countryApp/services/provincias.service';
@@ -15,11 +13,10 @@ export class PopulationPageCopyComponent implements OnInit {
   populationData: PopulationData[] = [];
   communities: Community[] = [];
   combinedData: any[] = [];
-  filteredData: any[] = []; // Масив для збереження відфільтрованих даних
+  filteredData: any[] = [];
   public isLoading: boolean = false;
-  searchTerm: string = ''; // Строка для пошукового запиту
+  searchTerm: string = '';
 
-  // Створюємо масив, який відслідковує стан відображення списку провінцій
   toggledCommunities: { [key: string]: boolean } = {};
 
   constructor(
@@ -32,15 +29,11 @@ export class PopulationPageCopyComponent implements OnInit {
     this.loadData();
   }
 
-  // Метод для завантаження даних із обох сервісів одночасно
   loadData(): void {
     forkJoin({
       populationData: this.populationService.getPopulationData(),
       communities: this.provincesService.getCommunitiesAndProvinces(),
     }).subscribe(({ populationData, communities }) => {
-          console.log('Population Data:', populationData); // Лог отриманих даних населення
-    console.log('Communities Data:', communities); // Лог отриманих громад
-
 
       this.populationData = populationData.map(region => ({
         region: region.Nombre,
@@ -76,7 +69,7 @@ export class PopulationPageCopyComponent implements OnInit {
 
   combineData(): void {
 
-     console.log('Combined Data:', this.combinedData); // Лог для перевірки всіх даних перед фільтруванням
+     console.log('Combined Data:', this.combinedData);
   console.log('Search Term in Filter:', this.searchTerm);
     if (this.populationData.length && this.communities.length) {
       this.combinedData = this.communities
@@ -122,43 +115,36 @@ export class PopulationPageCopyComponent implements OnInit {
         })
         .filter(community => community !== null);
 
-      // Встановлюємо відфільтровані дані при першому завантаженні
       this.filteredData = this.combinedData;
     }
   }
 
-  // Метод для обробки введення в пошуковий рядок
   handleSearch(term: string): void {
     this.searchTerm = term;
      console.log('Search Term:', this.searchTerm);
     this.filterData();
   }
 
-  // Метод для обробки дебаунсу
   handleDebounce(term: string): void {
     this.searchTerm = term;
     this.filterData();
   }
 
-  // Фільтрація даних за назвою регіону або провінції
   filterData(): void {
     if (!this.searchTerm.trim()) {
-      this.filteredData = [...this.combinedData]; // Повертаємо всі дані, якщо немає пошукового запиту
+      this.filteredData = [...this.combinedData];
     } else {
       const lowerSearchTerm = this.searchTerm.toLowerCase();
- console.log('Filtering with:', lowerSearchTerm);
-      // Фільтрація за назвою регіону та провінцій
+
       this.filteredData = this.combinedData.filter(community =>
         this.normalizeRegionName(community.name).includes(lowerSearchTerm) ||
         community.provinces.some((province: { name: string; }) =>
           this.normalizeRegionName(province.name).includes(lowerSearchTerm)
         )
       );
-      console.log('Filtered Data:', this.filteredData);
     }
   }
 
-  // Метод для тоглу
   toggleProvinces(communityName: string): void {
     this.toggledCommunities[communityName] = !this.toggledCommunities[communityName];
   }

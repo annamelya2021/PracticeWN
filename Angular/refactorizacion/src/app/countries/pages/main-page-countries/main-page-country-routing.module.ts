@@ -8,11 +8,6 @@ import { CountryPageComponent } from '../country-page/country-page.component';
 import { PopulationPageCopyComponent } from '../population-page copy/population.component';
 
 const routes:Routes= [
- /*  {
-    path: '',
-    loadChildren: () => import('../../countries.module').then( m => m.CountriesModule ),
-  },
- */
 
   {
     path: '',
