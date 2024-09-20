@@ -27,7 +27,6 @@ import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { CountryTableComponent } from './components/countryTable/countryTable.component';
 import { SharedModule } from '../shared/shared.module';
 //import { MainPageCountriesComponent } from './pages/main-page-countries/main-page-countries.component';
-import { MainCountriesRoutingModule } from './pages/main-page-countries/main-page-country-routing.module';
 
 @NgModule({
   declarations: [
@@ -47,7 +46,6 @@ import { MainCountriesRoutingModule } from './pages/main-page-countries/main-pag
   imports: [
     CommonModule,
     CountriesRoutingModule,
-    MainCountriesRoutingModule,
     SharedModule,
     MatCardModule,
     MatInputModule,

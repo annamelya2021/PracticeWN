@@ -7,39 +7,52 @@ import { CountryPageComponent } from './pages/country-page/country-page.componen
 
 import { PopulationPageComponent } from './pages/population-page/population.component';
 import { PopulationPageCopyComponent } from './pages/population-page copy/population.component';
+import { MainPageCountriesComponent } from './pages/main-page-countries/main-page-countries.component';
 //import { MainPageCountriesComponent } from './pages/main-page-countries/main-page-countries.component';
 
 
 
 const routes:Routes= [
- {
-  path: 'by-capital',
-  component: ByCapitalPageComponent,
-},
-{
-  path: 'by-country',
-  component: ByCountryPageComponent,
-},
- {
-  path: 'by-region',
-  component: ByRegionPageComponent,
-},
-{
-  path: 'by/:id',
-  component: CountryPageComponent,
-},
-{
-  path: 'populationcopy',
-  component:  PopulationPageCopyComponent  ,
-},
-{
-  path: '**' ,
-  redirectTo: 'by-capital',
-},
+  /*  {
+     path: '',
+     loadChildren: () => import('../../countries.module').then( m => m.CountriesModule ),
+   },
+  */
 
+   {
+     path: '',
+     component: MainPageCountriesComponent,
+     children: [
+       {
+         path: 'by-capital',
+         component: ByCapitalPageComponent,
+       },
+       {
+         path: 'by-country',
+         component: ByCountryPageComponent,
+       },
+    {
+         path: 'by-region',
+         component: ByRegionPageComponent,
+       },
 
-]
+       {
+         path: 'by/:id',
+         component: CountryPageComponent,
+       },
 
+       {
+         path: 'populationcopy',
+         component:  PopulationPageCopyComponent  ,
+       },
+        {
+         path: '**' ,
+         redirectTo: 'by-capital',
+       },
+     ]
+
+     }
+ ]
 
 @NgModule({
   imports: [

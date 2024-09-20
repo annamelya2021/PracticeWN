@@ -8,8 +8,8 @@ const routes: Routes = [
 
    {
     path: 'countries',
-    
-    loadChildren: () => import('./countries/pages/main-page-countries/main-page-country.module').then( m => m.MainCountriesModule),
+
+    loadChildren: () => import('./countries/countries.module').then( m => m.CountriesModule),
   },
   {
     path: 'auth',
