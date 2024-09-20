@@ -1,19 +1,16 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { Error404Component } from './pages/error404/error404.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import { LoadingSpinerComponent } from './components/loadingSpiner/loadingSpiner.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { SearchBoxComponent } from './components/searchBox/searchBox.component';
-import { CountryTableComponent } from './components/countryTable/countryTable.component';
 import { CountryDetailModalComponent } from './components/country-detail-modal/country-detail-modal.component';
-
-
+import { LoadingSpinerComponent } from './components/loadingSpiner/loadingSpiner.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchBoxComponent } from './components/searchBox/searchBox.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { Error404Component } from './pages/error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +19,7 @@ import { CountryDetailModalComponent } from './components/country-detail-modal/c
     LoadingSpinerComponent,
     SidebarComponent,
     SearchBoxComponent,
-    CountryTableComponent,
-    CountryDetailModalComponent
-
-
-
-
+    CountryDetailModalComponent,
   ],
   imports: [
     CommonModule,
@@ -35,18 +27,16 @@ import { CountryDetailModalComponent } from './components/country-detail-modal/c
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  exports:[
+  exports: [
+    RouterModule,
     NavbarComponent,
     Error404Component,
     LoadingSpinerComponent,
     SidebarComponent,
     SearchBoxComponent,
-    CountryTableComponent,
-    CountryDetailModalComponent
-
-
-  ]
+    CountryDetailModalComponent,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

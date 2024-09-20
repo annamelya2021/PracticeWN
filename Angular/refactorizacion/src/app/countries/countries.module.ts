@@ -1,32 +1,26 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { CountriesRoutingModule } from './countries-routing.module';
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import {  MatIconModule } from '@angular/material/icon';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { AuthModule } from '../auth/auth.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
-
-import { CountryDetailModalComponent } from './components/country-detail-modal/country-detail-modal.component';
-
-import { CountryPageComponent } from './pages/country-page/country-page.component';
-import { ByRegionPageComponent } from './pages/by-region-page/by-region-page.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { SharedModule } from '../shared/shared.module';
+import { CountryTableComponent } from './components/countryTable/countryTable.component';
+import { CountriesRoutingModule } from './countries-routing.module';
 import { ByCapitalPageComponent } from './pages/by-capital-page/by-capital-page.component';
 import { ByCountryPageComponent } from './pages/by-country-page/by-country-page.component';
+import { ByRegionPageComponent } from './pages/by-region-page/by-region-page.component';
+import { CountryPageComponent } from './pages/country-page/country-page.component';
+import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
+import { MainPageCountriesComponent } from './pages/main-page-countries/main-page-countries.component';
 import { PopulationPageCopyComponent } from './pages/population-page copy/population.component';
 import { PopulationPageComponent } from './pages/population-page/population.component';
-import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
-import { CountryTableComponent } from './components/countryTable/countryTable.component';
-import { SharedModule } from '../shared/shared.module';
-//import { MainPageCountriesComponent } from './pages/main-page-countries/main-page-countries.component';
 
 @NgModule({
   declarations: [
@@ -34,14 +28,13 @@ import { SharedModule } from '../shared/shared.module';
     ByCountryPageComponent,
     ByRegionPageComponent,
     CountryPageComponent,
-   /*  ByFlagPageComponent, */
-    CountryDetailModalComponent,
-   CountryPageComponent,
+    CountryPageComponent,
     PopulationPageComponent,
     PopulationPageCopyComponent,
     CountryTableComponent,
-     PopulationPageCopyComponent,
+    PopulationPageCopyComponent,
     LayoutPageComponent,
+    MainPageCountriesComponent,
   ],
   imports: [
     CommonModule,
@@ -60,11 +53,8 @@ import { SharedModule } from '../shared/shared.module';
     MatSidenavModule,
     MatListModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
   ],
- exports: [
-
-
-    ]
+  exports: [],
 })
-export class CountriesModule { }
+export class CountriesModule {}
