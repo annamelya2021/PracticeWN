@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CountriesModule } from './countries/countries.module';
 import { BanderasModule } from './banderas/banderas.module';
+import { MainPageCountriesComponent } from './countries/pages/main-page-countries/main-page-countries.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { BanderasModule } from './banderas/banderas.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
-   /*  CountriesModule,/*  */
+    CountriesModule,
     RouterModule,
     BanderasModule
   ],

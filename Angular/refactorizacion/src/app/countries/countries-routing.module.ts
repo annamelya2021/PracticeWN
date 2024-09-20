@@ -20,30 +20,22 @@ const routes:Routes= [
   path: 'by-country',
   component: ByCountryPageComponent,
 },
-/* {
+ {
   path: 'by-region',
   component: ByRegionPageComponent,
-},
-{
-  path: 'by-flag',
-  component: ByFlagPageComponent,
 },
 {
   path: 'by/:id',
   component: CountryPageComponent,
 },
 {
-  path: 'population',
-  component:  PopulationPageComponent  ,
-},
-{
   path: 'populationcopy',
   component:  PopulationPageCopyComponent  ,
-}, */
-/* {
+},
+{
   path: '**' ,
   redirectTo: 'by-capital',
-}, */
+},
 
 
 ]

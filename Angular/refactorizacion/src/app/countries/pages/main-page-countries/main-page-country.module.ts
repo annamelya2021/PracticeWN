@@ -22,18 +22,24 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MainCountriesRoutingModule } from './main-page-country-routing.module';
+import { MainPageCountriesComponent } from './main-page-countries.component';
+import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   declarations: [
+    MainPageCountriesComponent,
 
   ],
   imports: [
     CommonModule,
-    MainCountriesRoutingModule
+    MainCountriesRoutingModule,
+    SharedModule
+
+
   ],
  exports: [
 
-
+  MainPageCountriesComponent
     ]
 })
 export class MainCountriesModule { }
