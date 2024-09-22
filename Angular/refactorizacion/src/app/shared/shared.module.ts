@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { MatCardModule } from '@angular/material/card';
     MatListModule,
     MatFormFieldModule,
     MatIconModule,
+    FormsModule
   ],
   exports: [
     RouterModule,
@@ -76,6 +78,7 @@ import { MatCardModule } from '@angular/material/card';
     MatListModule,
     MatFormFieldModule,
     MatIconModule,
+    FormsModule
   ],
 })
 export class SharedModule {}

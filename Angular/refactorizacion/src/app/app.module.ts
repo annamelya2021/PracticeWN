@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CountriesModule } from './countries/countries.module';
 import { BanderasModule } from './banderas/banderas.module';
 import { MainPageCountriesComponent } from './countries/pages/main-page-countries/main-page-countries.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MainPageCountriesComponent } from './countries/pages/main-page-countrie
     SharedModule,
     CountriesModule,
     RouterModule,
-    BanderasModule
+    BanderasModule,
+     FormsModule
   ],
   providers: [
     provideAnimationsAsync()
