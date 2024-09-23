@@ -1,14 +1,12 @@
 <div class="container my-4">
-  <h2 class="text-center">Países y Banderas</h2>
+  <!-- <h2 class="text-center">Países y Banderas</h2> -->
 
   <hr />
 
-  <!-- Спінер завантаження -->
   <div class="d-flex justify-content-center">
     <shared-loading-spiner *ngIf="isLoading"></shared-loading-spiner>
   </div>
 
-  <!-- Пошуковий рядок -->
   <div class="row justify-content-center">
     <div class="col-12 col-md-6">
       <shared-search-box
@@ -21,7 +19,6 @@
 
   <hr />
 
-  <!-- Список країн і прапорів -->
   <div class="row">
     <div class="col">
       <div class="row">
@@ -44,7 +41,6 @@
     </div>
   </div>
 
-  <!-- Модальне вікно з деталями країни -->
   <app-country-detail-modal
     [country]="selectedCountry!"
     [showModal]="showModal"

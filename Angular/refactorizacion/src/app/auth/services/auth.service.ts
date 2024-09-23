@@ -19,30 +19,28 @@ export class AuthService {
     return structuredClone(this.user);
   }
 
-  // Логінізація
   login(email: string, password: string): Observable<User | null> {
     return this.http.get<User[]>(`${this.baseUrl}/users?email=${email}`).pipe(
-      map(users => users.length > 0 ? users[0] : null), // Пошук користувача за email
+      map(users => users.length > 0 ? users[0] : null), 
       tap(user => {
         if (user) {
           this.user = user;
-          localStorage.setItem('token', 'aASDgjhasda.asdasd.aadsf123k'); // Можна зберегти токен
-          localStorage.setItem('user', JSON.stringify(user)); // Зберігаємо дані користувача
+          localStorage.setItem('token', 'aASDgjhasda.asdasd.aadsf123k'); 
+          localStorage.setItem('user', JSON.stringify(user)); 
         }
       }),
-      catchError(() => of(null)) // Обробка помилок
+      catchError(() => of(null)) 
     );
   }
 
-  // Перевірка автентифікації
   checkAuthentication(): Observable<boolean> {
     const token = localStorage.getItem('token');
 
-    if (!token) return of(false); // Якщо немає токена — не автентифікований
+    if (!token) return of(false); 
 
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
-      this.user = JSON.parse(storedUser); // Відновлюємо користувача з локального сховища
+      this.user = JSON.parse(storedUser); 
       return of(true);
     }
 
